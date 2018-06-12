@@ -29,19 +29,28 @@ end
 
 def check_input test_val, *valid_vals
 
-  if valid_vals.Class != Array
+  if valid_vals.class != "Array"
     puts "Error: check_input function requires valid values to be in an array"
     return false
   else
     length = valid_vals.length
-    if length > 2
+    if length == 2 && valid_vals[0].class == "integer"
+      if test_val <= valid_vals[1] && test_val >= valid_vals[0]
+        return true
+
+      else
+        return false
+      end
+
+    elsif length > 2 && (valid_vals[0].class == "Integer" || valid_vals[0].class == "Float")
       valid_vals.each do |value|
         if test_val == value
           return true
         end
       end
       return false
-    elsif length == 2 && valid_vals[0].Class == Array
+
+    elsif valid_vals[0].class == "String"
       if test_val <= valid_vals[1] && test_val >= valid_vals[0]
         return true
 
@@ -54,7 +63,18 @@ def check_input test_val, *valid_vals
 end
 
 def basic_calc
-
+  puts = "Pick your first number:"
+  num1 = get_number
+  puts = "Pick your second number"
+  num2 = get_number
+  puts = "Pick your operator"
+  operator = get_operator
+  case operator
+  when "+"
+    total = num1 + num2
+    num1 = total
+    
+  end
 end
 
 def advanced_calc
