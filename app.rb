@@ -2,9 +2,24 @@ user_msg = "This is a Calculator%Here are the options:%1: Basic Calculator%2: Ad
 
 
 def Calculator
-  get_calc_type
+  type = get_calc_type
+  if check_input type, 1,2,3,4
+    case type
+    when 1
+      basic_calc
+    when 2
+      advanced_calc
+    when 3
+      bmi_calc
+    when 4
+      trip_calc
+    end
+  end
+end
 
+def get_number
 
+  return number = gets.chomp
 end
 
 def get_calc_type
@@ -13,7 +28,7 @@ def get_calc_type
 end
 
 def check_input test_val, *valid_vals
-  
+
   if valid_vals.Class != Array
     puts "Error: check_input function requires valid values to be in an array"
     return false
@@ -35,5 +50,21 @@ def check_input test_val, *valid_vals
       end
     end
   end
+
+end
+
+def basic_calc
+
+end
+
+def advanced_calc
+
+end
+
+def bmi_calc
+
+end
+
+def trip_calc
 
 end
